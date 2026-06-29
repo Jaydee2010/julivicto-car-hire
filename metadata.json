@@ -1,0 +1,6 @@
+{
+  "name": "Julivicto Logistics",
+  "description": "Premium car hire, leasing, and executive chauffeur services in Maitama, Abuja, Nigeria.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
