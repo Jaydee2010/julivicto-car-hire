@@ -1,110 +1,183 @@
 import { Vehicle, Service, Feature, Testimonial } from './types';
+import lexusImg from './assets/images/lexus_rx_350_1782757105062.jpg';
+import pradoImg from './assets/images/toyota_prado_1782757076892.jpg';
+import mercedesImg from './assets/images/mercedes_e_class_1782757090850.jpg';
+import hiaceImg from './assets/images/toyota_hiace_bus_1782757121250.jpg';
 
 export const VEHICLES: Vehicle[] = [
   {
-    id: 'toyota-corolla',
-    name: 'Toyota Corolla',
-    type: 'Sedan',
-    image: 'https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&q=80&w=600',
-    seats: 5,
+    id: 'toyota-hiace-van',
+    name: 'Toyota Hiace Van',
+    type: 'Executive High-Roof Van',
+    category: 'Van',
+    categories: ['Van'],
+    image: '/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_08_AM_2b325985.jpg',
+    seats: 14,
+    transmission: 'Manual',
+    ac: true,
+    price: '₦150,000',
+    priceDaily: '₦150,000',
+    availability: 'Available for Immediate Dispatch',
+    description: 'High-roof 14-seater executive commuter van in pristine white. Exceptional air conditioning, elevated luggage capacity, and trusted reliability for corporate groups, delegations, and airport transit across Abuja.'
+  },
+  {
+    id: 'mercedes-benz-sprinter-3500-xd',
+    name: 'Mercedes-Benz Sprinter 3500 XD',
+    type: 'VIP Executive Jet-Van',
+    category: 'Luxury',
+    categories: ['Luxury', 'Van'],
+    image: '/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_16_AM_6568d5c2.jpg',
+    seats: 10,
     transmission: 'Automatic',
     ac: true,
-    priceDaily: '₦45,000',
-    description: 'Compact, efficient, and highly dependable. Ideal for city driving and daily commutes around Abuja.'
+    price: '₦1,500,000',
+    priceDaily: '₦1,500,000',
+    availability: 'Available for Immediate Dispatch',
+    description: 'Ultra-luxury custom executive coach finished in jet black with dual-zone climate control, captain lounge seating, privacy partition, and prestige road dominance for VIP dignitaries and state motorcades.'
+  },
+  {
+    id: 'toyota-granvia-luxury-van',
+    name: 'Toyota Granvia Luxury Van',
+    type: 'VIP Executive MPV',
+    category: 'Luxury',
+    categories: ['Luxury', 'Van'],
+    image: '/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_23_AM_542cdbc9.jpg',
+    seats: 6,
+    transmission: 'Automatic',
+    ac: true,
+    price: '₦1,000,000',
+    priceDaily: '₦1,000,000',
+    availability: 'Available for Immediate Dispatch',
+    description: 'Top-tier luxury MPV featuring massive chrome grille styling, power Ottoman captain recliners, dual sliding power doors, and ultra-quiet cabin refinement for first-class executive transit.'
   },
   {
     id: 'toyota-camry',
     name: 'Toyota Camry',
-    type: 'Executive Sedan',
-    image: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&q=80&w=600',
+    type: 'Executive Mid-Size Sedan',
+    category: 'Sedan',
+    categories: ['Sedan'],
+    image: '/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_30_AM_b72e47e9.jpg',
     seats: 5,
     transmission: 'Automatic',
     ac: true,
-    priceDaily: '₦60,000',
-    description: 'A blend of comfort and style. Equipped with executive seating and premium entertainment features.'
+    price: '₦130,000',
+    priceDaily: '₦130,000',
+    availability: 'Available for Immediate Dispatch',
+    description: 'Distinguished executive sedan in deep royal blue. Offers plush ergonomics, whisper-quiet cabin ride, advanced safety suite, and effortless manoeuvrability for Abuja business appointments.'
   },
   {
-    id: 'lexus-rx-350',
-    name: 'Lexus RX 350',
-    type: 'Luxury Crossover',
-    image: '/src/assets/images/lexus_rx_350_1782757105062.jpg',
-    seats: 5,
+    id: 'mercedes-benz-vito',
+    name: 'Mercedes-Benz Vito',
+    type: 'Executive Shuttle MPV',
+    category: 'Luxury',
+    categories: ['Luxury', 'Van'],
+    image: '/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_39_AM_4ab0c88a.jpg',
+    seats: 8,
     transmission: 'Automatic',
     ac: true,
-    priceDaily: '₦120,000',
-    description: 'Prestige crossover combining high-end luxury interiors with absolute driving sophistication.'
+    price: '₦1,000,000',
+    priceDaily: '₦1,000,000',
+    availability: 'Available for Immediate Dispatch',
+    description: 'Premium Mercedes-Benz Tourer finished in deep obsidian black. Designed for high-comfort executive passenger transfers, corporate board delegations, and bespoke private travel.'
   },
   {
-    id: 'toyota-prado',
-    name: 'Toyota Prado',
-    type: 'Luxury SUV',
-    image: '/src/assets/images/toyota_prado_1782757076892.jpg',
+    id: 'lexus-lx-570',
+    name: 'Lexus LX 570',
+    type: 'Flagship Luxury SUV',
+    category: 'SUV',
+    categories: ['Luxury', 'SUV'],
+    image: '/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_47_AM_f41ce798.jpg',
     seats: 7,
     transmission: 'Automatic',
     ac: true,
-    priceDaily: '₦180,000',
-    description: 'Executive SUV commanding a powerful road presence. Perfect for business trips, official delegations, and rough terrain.'
+    price: '₦1,500,000',
+    priceDaily: '₦1,500,000',
+    availability: 'Available for Immediate Dispatch',
+    description: 'Commanding V8 flagship luxury SUV boasting the iconic spindle grille, sumptuous hand-stitched leather cabin, hydraulic adaptive suspension, and sovereign VIP escort stature.'
   },
   {
-    id: 'mercedes-benz-e-class',
-    name: 'Mercedes-Benz E-Class',
-    type: 'Luxury Sedan',
-    image: '/src/assets/images/mercedes_e_class_1782757090850.jpg',
+    id: 'toyota-corolla',
+    name: 'Toyota Corolla',
+    type: 'Compact Executive Sedan',
+    category: 'Sedan',
+    categories: ['Sedan', 'Economy'],
+    image: '/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_57_AM_84d76ae4.jpg',
     seats: 5,
     transmission: 'Automatic',
     ac: true,
-    priceDaily: '₦150,000',
-    description: 'The epitome of corporate elegance and European sophistication. Preferred for high-profile executive transport.'
+    price: '₦100,000',
+    priceDaily: '₦100,000',
+    availability: 'Available for Immediate Dispatch',
+    description: 'Impeccable silver executive sedan providing reliable comfort, chilled dual climate conditioning, modern infotainment, and economic urban mobility throughout the Federal Capital Territory.'
   },
   {
-    id: 'toyota-hiace-bus',
-    name: 'Toyota Hiace Bus',
-    type: 'Executive Shuttle',
-    image: '/src/assets/images/toyota_hiace_bus_1782757121250.jpg',
-    seats: 14,
+    id: 'toyota-land-cruiser-prado',
+    name: 'Toyota Land Cruiser Prado',
+    type: 'Executive 4x4 SUV',
+    category: 'SUV',
+    categories: ['SUV'],
+    image: '/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_49_15_AM_3f697f22.jpg',
+    seats: 7,
+    transmission: 'Automatic',
+    ac: true,
+    price: '₦150,000',
+    priceDaily: '₦150,000',
+    availability: 'Available for Immediate Dispatch',
+    description: 'Muscular full-size 4WD luxury SUV in gloss black. Built for effortless command of Abuja expressways, diplomatic convoys, rugged terrain excursions, and commanding road presence.'
+  },
+  {
+    id: 'toyota-coaster-bus',
+    name: 'Toyota Coaster Bus',
+    type: 'Executive Passenger Midibus',
+    category: 'Van',
+    categories: ['Van'],
+    image: '/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_49_25_AM_da175530.jpg',
+    seats: 30,
     transmission: 'Manual',
     ac: true,
-    priceDaily: '₦100,000',
-    description: 'Spacious, air-conditioned, and fully optimized for crew logistics, wedding parties, and group tours.'
+    price: '₦200,000',
+    priceDaily: '₦200,000',
+    availability: 'Available for Immediate Dispatch',
+    description: 'High-capacity 30-passenger executive midibus with dual air conditioning, reclining passenger seating, tinted privacy glazing, and high-volume luggage storage for large group logistics.'
   }
 ];
 
 export const SERVICES: Service[] = [
   {
-    id: 'self-drive',
-    title: 'Self-Drive Car Hire',
-    description: 'Enjoy the freedom and flexibility of driving yourself with our selection of pristine, reliable sedans and SUVs.',
+    id: 'luxury-rentals',
+    title: 'Luxury Car Rentals',
+    description: 'Experience prestige and uncompromising comfort with our elite fleet of luxury SUVs, executive sedans, and exotic supercars.',
     iconName: 'Key'
   },
   {
-    id: 'chauffeur',
-    title: 'Chauffeur Services',
-    description: 'Sit back and relax while our highly trained, vetted, and security-conscious drivers navigate Abuja\'s roads.',
+    id: 'chauffeur-services',
+    title: 'Executive Chauffeur Services',
+    description: 'Travel with complete peace of mind guided by discreet, professionally trained, and security-vetted executive chauffeurs.',
     iconName: 'UserCheck'
   },
   {
     id: 'corporate-leasing',
-    title: 'Corporate Car Leasing',
-    description: 'Customized fleet solutions designed for corporate entities, diplomatic missions, and non-profit organizations.',
+    title: 'Corporate Vehicle Leasing',
+    description: 'Bespoke fleet management packages tailored for corporate entities, diplomatic organizations, and multinational executives.',
     iconName: 'Briefcase'
   },
   {
-    id: 'airport-transfer',
+    id: 'airport-transfers',
     title: 'Airport Transfers',
-    description: 'Punctual, executive pick-ups and drop-offs to and from Nnamdi Azikiwe International Airport, Abuja.',
+    description: 'Punctual, seamless pick-ups and drop-offs to and from Nnamdi Azikiwe International Airport with optional VIP tarmac escort.',
     iconName: 'PlaneTakeoff'
   },
   {
-    id: 'wedding-transport',
-    title: 'Wedding Transportation',
-    description: 'Add elegance to your special day with coordinated luxury convoys featuring pristine luxury sedans and SUVs.',
-    iconName: 'Heart'
+    id: 'long-term-leasing',
+    title: 'Long-Term Car Leasing',
+    description: 'Flexible, cost-effective monthly and annual vehicle lease contracts with comprehensive preventative maintenance included.',
+    iconName: 'CalendarRange'
   },
   {
-    id: 'long-term',
-    title: 'Long-Term Vehicle Leasing',
-    description: 'Affordable long-term lease options spanning months or years, complete with full maintenance support.',
-    iconName: 'CalendarRange'
+    id: 'special-occasions',
+    title: 'Special Occasion Transportation',
+    description: 'Make a timeless statement at high-profile galas, luxury weddings, and VIP private events with coordinated luxury convoys.',
+    iconName: 'Heart'
   }
 ];
 

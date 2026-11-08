@@ -128,12 +128,11 @@ export default function Fleet({ onBookVehicle }: FleetProps) {
                   {/* Pricing row & Booking button */}
                   <div className="flex items-center justify-between mt-auto">
                     <div>
-                      <span className="block font-sans text-[10px] text-slate-400 uppercase tracking-widest font-semibold">
-                        Daily Lease rate
+                      <span className="block font-sans text-[10px] text-yellow-400/90 uppercase tracking-widest font-semibold">
+                        Rental Price
                       </span>
                       <span className="font-display font-bold text-lg text-white">
-                        {vehicle.priceDaily}
-                        <span className="font-sans text-xs text-slate-400 font-normal"> / Day</span>
+                        {vehicle.price}
                       </span>
                     </div>
 

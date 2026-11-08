@@ -248,7 +248,7 @@ export default function BookingForm({ preselectedVehicle }: BookingFormProps) {
                         <option value="">Select a vehicle from our fleet...</option>
                         {VEHICLES.map((vehicle) => (
                           <option key={vehicle.id} value={vehicle.name}>
-                            {vehicle.name} ({vehicle.priceDaily}/Day)
+                            {vehicle.name} ({vehicle.price})
                           </option>
                         ))}
                       </select>

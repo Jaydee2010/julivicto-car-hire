@@ -1,109 +1,138 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Shield } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X, Phone } from 'lucide-react';
 
-interface HeaderProps {
-  onNavigate: (sectionId: string) => void;
-  activeSection: string;
-}
-
-export default function Header({ onNavigate, activeSection }: HeaderProps) {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isFleetPage = location.pathname === '/fleet';
 
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'Fleet', id: 'fleet' },
-    { label: 'Services', id: 'services' },
-    { label: 'Why Choose Us', id: 'why-choose-us' },
-    { label: 'Booking', id: 'booking' },
-    { label: 'Testimonials', id: 'testimonials' },
-    { label: 'Contact', id: 'contact' },
+    { label: 'Home', path: '/', isSection: false },
+    { label: 'About Us', path: '/#about', isSection: true, sectionId: 'about' },
+    { label: 'Our Fleet', path: '/fleet', isSection: false },
+    { label: 'Contact', path: '/#contact', isSection: true, sectionId: 'contact' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLinkClick = (id: string) => {
+  const handleNavClick = (item: typeof navItems[0]) => {
     setIsOpen(false);
-    onNavigate(id);
+
+    if (item.path === '/fleet') {
+      navigate('/fleet');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (item.path === '/') {
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+        window.scrollTo({ top: 0 });
+      }
+      return;
+    }
+
+    if (item.isSection && item.sectionId) {
+      if (location.pathname === '/') {
+        const el = document.getElementById(item.sectionId);
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      } else {
+        navigate(`/#${item.sectionId}`);
+      }
+    }
   };
 
   return (
     <header
       id="main-header"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-slate-950/95 backdrop-blur-md shadow-lg border-b border-white/10 py-3'
-          : 'bg-transparent py-5'
+        isScrolled || isFleetPage
+          ? 'bg-slate-950/95 backdrop-blur-md shadow-lg border-b border-white/10 py-3.5'
+          : 'bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+          
           {/* Brand Logo */}
           <button
             id="brand-logo"
-            onClick={() => handleLinkClick('home')}
-            className="flex items-center space-x-2 text-left focus:outline-none group cursor-pointer"
+            onClick={() => {
+              navigate('/');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center space-x-3 text-left focus:outline-none group cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-              <Shield className="text-slate-950 w-5 h-5 stroke-[2.5]" />
-            </div>
-            <div>
-              <span className="block font-display font-bold text-lg leading-none tracking-tight text-white group-hover:text-gold-300 transition-colors">
-                JULIVICTO
-              </span>
-              <span className="block font-sans text-[10px] tracking-widest text-gold-400 font-semibold uppercase mt-0.5">
-                Logistics & Car Hire
-              </span>
-            </div>
+            <img
+              src="/assets/aistudio/file_000000008d908210b0c7f4b9f8e49cd4_1__61f09cec.png"
+              alt="Julivicto Car Rentals"
+              className="h-10 sm:h-12 w-auto object-contain rounded-md shadow-md group-hover:scale-105 transition-transform duration-300"
+            />
           </button>
 
           {/* Desktop Navigation */}
-          <nav id="desktop-nav" className="hidden lg:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                id={`nav-link-${item.id}`}
-                onClick={() => handleLinkClick(item.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
-                  activeSection === item.id
-                    ? 'text-gold-400 bg-white/5 font-semibold shadow-inner'
-                    : 'text-slate-300 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+          <nav id="desktop-nav" className="hidden md:flex items-center space-x-1 lg:space-x-2">
+            {navItems.map((item) => {
+              const isActive = item.path === '/fleet' 
+                ? isFleetPage 
+                : (!isFleetPage && item.path === '/');
+
+              return (
+                <button
+                  key={item.label}
+                  id={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  onClick={() => handleNavClick(item)}
+                  className={`px-4 py-2 rounded-full text-xs lg:text-sm font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? 'text-yellow-400 bg-white/5 border border-yellow-400/20 shadow-inner'
+                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
           </nav>
 
-          {/* Call to Action Call Button */}
-          <div className="hidden sm:flex items-center space-x-4">
+          {/* Phone Hotline Call Action */}
+          <div className="hidden sm:flex items-center space-x-3">
             <a
               id="header-phone-cta"
               href="tel:+2347060666882"
-              className="flex items-center space-x-2 px-4 py-2 rounded-full border border-gold-500/30 text-gold-400 hover:text-slate-950 hover:bg-gradient-to-r hover:from-gold-300 hover:to-gold-500 font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-gold-500/20"
+              className="flex items-center space-x-2 px-4 py-2 rounded-full border border-yellow-500/40 text-yellow-400 hover:text-slate-950 hover:bg-gradient-to-r hover:from-yellow-300 hover:to-amber-500 font-semibold text-xs lg:text-sm transition-all duration-300 shadow-md hover:shadow-yellow-500/20"
             >
-              <Phone className="w-4 h-4 animate-pulse" />
+              <Phone className="w-3.5 h-3.5 animate-pulse" />
               <span>0706 066 6882</span>
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex lg:hidden">
+          <div className="flex md:hidden">
             <button
               id="mobile-menu-toggle"
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 focus:outline-none transition-colors"
               aria-expanded={isOpen}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-6 w-6 text-yellow-400" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
+
         </div>
       </div>
 
@@ -111,33 +140,25 @@ export default function Header({ onNavigate, activeSection }: HeaderProps) {
       {isOpen && (
         <div
           id="mobile-navigation-overlay"
-          className="lg:hidden bg-slate-950/98 backdrop-blur-lg border-b border-white/10"
+          className="md:hidden bg-slate-950/98 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 space-y-2"
         >
-          <div className="px-2 pt-2 pb-6 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                id={`mobile-nav-link-${item.id}`}
-                onClick={() => handleLinkClick(item.id)}
-                className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors cursor-pointer ${
-                  activeSection === item.id
-                    ? 'text-gold-400 bg-white/10 font-bold'
-                    : 'text-slate-300 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-            <div className="pt-4 px-4">
-              <a
-                id="mobile-header-phone-cta"
-                href="tel:+2347060666882"
-                className="flex items-center justify-center space-x-2 w-full py-3 rounded-lg bg-gradient-to-r from-gold-400 to-gold-600 text-slate-950 font-bold shadow-md hover:scale-[1.02] transition-transform"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Call: 0706 066 6882</span>
-              </a>
-            </div>
+          {navItems.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => handleNavClick(item)}
+              className="block w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:text-yellow-400 hover:bg-white/5 transition-colors cursor-pointer"
+            >
+              {item.label}
+            </button>
+          ))}
+          <div className="pt-2">
+            <a
+              href="tel:+2347060666882"
+              className="flex items-center justify-center space-x-2 w-full py-3 rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-md"
+            >
+              <Phone className="w-4 h-4" />
+              <span>Call: 0706 066 6882</span>
+            </a>
           </div>
         </div>
       )}

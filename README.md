@@ -1,20 +1,48 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Julivicto Logistics - Car Hire and Rental Services
 
-# Run and deploy your AI Studio app
+A modern, responsive web application for **Julivicto Logistics Car Hire and Rental Services**, located in Maitama, Abuja, Nigeria.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/0aca4372-af28-484d-bdd5-ee461096a60b
+- **Cinematic Hero Experience**: Seamless zero-crack video background featuring the yellow Lamborghini Urus with dual-buffer crossfade playback.
+- **Two-Page Architecture**:
+  - **Homepage (`/`)**: Executive mobility introduction, services showcase, why choose us, fleet CTA, testimonials, booking desk, and Maitama contact coordinates.
+  - **Fleet Catalogue (`/fleet`)**: Filterable inventory (All Vehicles, SUVs, Sedans, Luxury, Economy, Vans & Buses) with technical specifications, pricing, and direct WhatsApp booking.
+- **Direct WhatsApp Integration**: Fast reservation inquiry links pre-filled with vehicle details (`+234 706 066 6882`).
+- **Brand Palette**: Navy Blue, Gold, Black, and White luxury aesthetic.
 
-## Run Locally
+## Quick Start (Run Locally)
 
-**Prerequisites:**  Node.js
+### Prerequisites
 
+- [Node.js](https://nodejs.org/) (version 18 or higher recommended)
+- `npm`
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <YOUR_REPOSITORY_URL>
+   cd julivicto-logistics
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Configure environment variables (optional for local dev):
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Start development server:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+5. Build for production:
+   ```bash
+   npm run build
+   ```

@@ -1,12 +1,16 @@
 export interface Vehicle {
   id: string;
   name: string;
-  type: string; // 'Sedan' | 'SUV' | 'Luxury' | 'Bus' | etc.
+  type: string; // e.g. 'Luxury SUV', 'Executive Sedan', etc.
+  category: 'SUV' | 'Sedan' | 'Luxury' | 'Economy' | 'Van';
+  categories: ('SUV' | 'Sedan' | 'Luxury' | 'Economy' | 'Van')[];
   image: string;
   seats: number;
   transmission: 'Automatic' | 'Manual';
   ac: boolean;
-  priceDaily: string; // placeholder text or formatted price e.g., '₦60,000' or 'Contact for Pricing'
+  price: string; // e.g. '₦4,000,000'
+  priceDaily?: string; // backwards compatibility
+  availability: string; // e.g. 'Ready for Dispatch', 'Available for Booking'
   description: string;
 }
 
