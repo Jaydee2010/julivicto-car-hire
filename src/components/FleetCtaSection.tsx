@@ -75,14 +75,50 @@ export default function FleetCtaSection() {
               >
                 <div className="h-28 rounded-xl overflow-hidden mb-3 bg-slate-950">
                   <img
-                    src="/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_16_AM_6568d5c2.jpg"
-                    alt="Mercedes-Benz Sprinter 3500 XD"
+                    src="/assets/aistudio/ChatGPT_Image_Nov_8__2026__03_14_15_AM_9970da25.jpg"
+                    alt="Lamborghini Urus"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="eager"
                   />
                 </div>
                 <h4 className="font-display font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">
-                  Sprinter 3500 XD
+                  Lamborghini Urus
+                </h4>
+                <p className="font-sans text-[11px] text-yellow-400/90 font-bold mt-0.5">₦4,000,000</p>
+              </div>
+
+              <div 
+                onClick={handleExploreFleet} 
+                className="bg-slate-900/80 border border-white/10 hover:border-yellow-400/40 p-4 rounded-2xl group transition-all duration-300 cursor-pointer shadow-lg"
+              >
+                <div className="h-28 rounded-xl overflow-hidden mb-3 bg-slate-950">
+                  <img
+                    src="/assets/aistudio/ChatGPT_Image_Nov_8__2026__03_26_20_AM_19e67add.jpg"
+                    alt="Rolls-Royce Ghost"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="eager"
+                  />
+                </div>
+                <h4 className="font-display font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">
+                  Rolls-Royce Ghost
+                </h4>
+                <p className="font-sans text-[11px] text-yellow-400/90 font-bold mt-0.5">₦4,000,000</p>
+              </div>
+
+              <div 
+                onClick={handleExploreFleet} 
+                className="bg-slate-900/80 border border-white/10 hover:border-yellow-400/40 p-4 rounded-2xl group transition-all duration-300 cursor-pointer shadow-lg"
+              >
+                <div className="h-28 rounded-xl overflow-hidden mb-3 bg-slate-950">
+                  <img
+                    src="/assets/aistudio/ChatGPT_Image_Nov_8__2026__03_26_08_AM_eb8e7a3d.jpg"
+                    alt="Mercedes-Benz G-Class"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="eager"
+                  />
+                </div>
+                <h4 className="font-display font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">
+                  Mercedes G-Class
                 </h4>
                 <p className="font-sans text-[11px] text-yellow-400/90 font-bold mt-0.5">₦1,500,000</p>
               </div>
@@ -93,52 +129,16 @@ export default function FleetCtaSection() {
               >
                 <div className="h-28 rounded-xl overflow-hidden mb-3 bg-slate-950">
                   <img
-                    src="/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_23_AM_542cdbc9.jpg"
-                    alt="Toyota Granvia Luxury Van"
+                    src="/assets/aistudio/ChatGPT_Image_Nov_8__2026__03_27_03_AM_ce0b1f6e.jpg"
+                    alt="Toyota Land Cruiser"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="eager"
                   />
                 </div>
                 <h4 className="font-display font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">
-                  Toyota Granvia
+                  Toyota Land Cruiser
                 </h4>
-                <p className="font-sans text-[11px] text-yellow-400/90 font-bold mt-0.5">₦1,000,000</p>
-              </div>
-
-              <div 
-                onClick={handleExploreFleet} 
-                className="bg-slate-900/80 border border-white/10 hover:border-yellow-400/40 p-4 rounded-2xl group transition-all duration-300 cursor-pointer shadow-lg"
-              >
-                <div className="h-28 rounded-xl overflow-hidden mb-3 bg-slate-950">
-                  <img
-                    src="/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_48_47_AM_f41ce798.jpg"
-                    alt="Lexus LX 570"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="eager"
-                  />
-                </div>
-                <h4 className="font-display font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">
-                  Lexus LX 570
-                </h4>
-                <p className="font-sans text-[11px] text-yellow-400/90 font-bold mt-0.5">₦1,500,000</p>
-              </div>
-
-              <div 
-                onClick={handleExploreFleet} 
-                className="bg-slate-900/80 border border-white/10 hover:border-yellow-400/40 p-4 rounded-2xl group transition-all duration-300 cursor-pointer shadow-lg"
-              >
-                <div className="h-28 rounded-xl overflow-hidden mb-3 bg-slate-950">
-                  <img
-                    src="/assets/aistudio/ChatGPT_Image_Nov_8__2026__04_49_15_AM_3f697f22.jpg"
-                    alt="Toyota Land Cruiser Prado"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="eager"
-                  />
-                </div>
-                <h4 className="font-display font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">
-                  Land Cruiser Prado
-                </h4>
-                <p className="font-sans text-[11px] text-yellow-400/90 font-bold mt-0.5">₦150,000</p>
+                <p className="font-sans text-[11px] text-yellow-400/90 font-bold mt-0.5">₦1,700,000</p>
               </div>
             </div>
 
